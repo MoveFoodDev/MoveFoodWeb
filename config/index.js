@@ -1,7 +1,8 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
+var secrets = require('./secrets');
 
-module.exports = {
+const CONFIG = {
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
@@ -20,5 +21,16 @@ module.exports = {
     env: require('./dev.env'),
     port: 8080,
     proxyTable: {}
+  },
+  env: () => {
+    switch (process.env.NODE_ENV) {
+      case 'production': return 'prod';
+      case 'test': return 'test';
+      default: return 'dev';
+    }
   }
 }
+
+CONFIG.firebase = secrets.firebase[CONFIG.env()];
+
+module.exports = CONFIG;

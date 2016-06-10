@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
+    "secrets": "rsync -a -v --ignore-existing config/secrets.example.js config/secrets.js",
     "build": "node build/build.js",
     "unit": "karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
@@ -13,8 +14,9 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "babel-runtime": "^6.0.0",
     "vue": "^1.0.21",
-    "babel-runtime": "^6.0.0"
+    "vue-firebase-mixin": "^0.1.2"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
