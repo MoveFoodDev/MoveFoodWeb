@@ -4,7 +4,9 @@ import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 import DevTools from '../containers/DevTools';
 import { syncHistory } from 'react-router-redux';
-import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router';
+import { reduxReactFirebase } from 'redux-react-firebase';
+
 // The reduxRouterMiddleware will look for route actions created by push, replace, etc.
 // and applies them to the history.
 const reduxRouterMiddleware = syncHistory(browserHistory);
