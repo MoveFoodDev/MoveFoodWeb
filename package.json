@@ -1,13 +1,11 @@
 {
   "name": "generator-simple-redux",
   "version": "1.0.0",
-  "description": "My simple redux application.",
+  "description": "MoveFood.org",
   "scripts": {
     "clean": "rimraf public/bin",
-    "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
-    "build": "npm run clean && npm run build:webpack",
-    "dev": "NODE_ENV=development npm start",
-    "dev:win": "set NODE_ENV=development&& npm start",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
+    "dev": "cross-env NODE_ENV=development npm start",
     "start": "npm run build && firebase serve",
     "lint": "eslint src"
   },
@@ -36,7 +34,7 @@
     "install": "^0.8.1",
     "node-sass": "^3.4.2",
     "npm": "^3.10.3",
-  "redux-devtools": "^3.0.1",
+    "redux-devtools": "^3.0.1",
     "redux-devtools-dock-monitor": "^1.0.1",
     "redux-devtools-log-monitor": "^1.0.2",
     "redux-logger": "^2.4.0",
@@ -57,6 +55,7 @@
     "react-router": "^2.0.0-rc5",
     "react-router-redux": "^2.1.0",
     "reactfire": "^1.0.0",
-    "redux-thunk": "^1.0.3"
+    "redux-thunk": "^1.0.3",
+    "winterfell": "^1.0.6"
   }
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import DevTools from './DevTools';
 import Routes from '../routes';
 
 /**
@@ -8,7 +7,7 @@ import Routes from '../routes';
  */
 module.exports = class Root extends Component {
   render() {
-    const { store } = this.props;
+    const { store, history } = this.props;
     return (
       /**
        * Provider is a component provided to us by the 'react-redux' bindings that
@@ -16,11 +15,7 @@ module.exports = class Root extends Component {
        * calls in component hierarchy below.
        */
       <Provider store={store}>
-        <div>
-          <Routes />
-          {/* Being the dev version of our Root component, we include DevTools below */}
-          <DevTools />
-        </div>
+        <Routes history={history} />
       </Provider>
     );
   }
