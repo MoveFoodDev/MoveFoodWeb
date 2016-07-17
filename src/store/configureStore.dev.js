@@ -5,7 +5,8 @@ import thunk from 'redux-thunk';
 import DevTools from '../containers/DevTools';
 import { syncHistory } from 'react-router-redux';
 import { browserHistory } from 'react-router';
-import { reduxReactFirebase } from 'redux-react-firebase';
+import {createStore, combineReducers, compose} from 'redux'
+import {reduxReactFirebase, firebaseStateReducer} from 'redux-react-firebase'
 
 // The reduxRouterMiddleware will look for route actions created by push, replace, etc.
 // and applies them to the history.
@@ -19,8 +20,20 @@ const reduxRouterMiddleware = syncHistory(browserHistory);
  */
 const logger = createLogger();
 
+
+const rootReducer = combineReducers({
+  firebase: firebaseStateReducer
+})
+
+const createStoreWithFirebase = compose(
+    reduxReactFirebase('__YOUR_FIREBASE_URL__'),
+)(createStore)
+
+
+store = createStoreWithFirebase(rootReducer, initialState)
+
 const finalCreateStore = compose(
-  // Middleware you want to use in development:
+    // Middleware you want to use in development:
   applyMiddleware(logger, thunk, reduxRouterMiddleware),
   // Required! Enable Redux DevTools with the monitors you chose
   DevTools.instrument()

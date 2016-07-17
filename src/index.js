@@ -1,5 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import firebase from 'firebase';
+
+// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB99nyDnhEgN0s2-fHBR37IA2KqM0vtQwA",
+    authDomain: "move-food-cf867.firebaseapp.com",
+    databaseURL: "https://move-food-cf867.firebaseio.com",
+    storageBucket: "move-food-cf867.appspot.com",
+  };
+  firebase.initializeApp(config);
 
 /**
  * Import the stylesheet you want used! Here we just reference

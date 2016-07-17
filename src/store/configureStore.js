@@ -5,7 +5,6 @@
  */
 
 let loadedStore = null;
-
 if (process.env.NODE_ENV === 'production') {
   loadedStore = require('./configureStore.prod');
 } else {
